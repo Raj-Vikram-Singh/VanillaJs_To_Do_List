@@ -49,7 +49,7 @@ function saveItemButton(){
 
 
 document.addEventListener("keyup", function(event){
-    let task = newToDoItem.value;
+    let task = newToDoItem.value.trim();
     if(event.keyCode == 13){
         showItem(task, id, false);
 
