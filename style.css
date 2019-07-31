@@ -1,0 +1,103 @@
+
+.container{
+   margin: auto;
+   width: 400px;
+   border: 1px solid lightgray;
+   border-radius: 5px;
+}
+
+#refresh{
+    height: 25px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    border: none;
+    border-radius: 50px;
+}
+
+.header{
+    background-image: url("writing-pencil.jpg")  ;
+    position: relative;
+   height: 200px;
+   width: 400px;
+   background-size: 400px 200px;
+   border-radius: 5px 5px 0 0;
+    /* background-position: 2% 0%; */
+    
+}
+#middleBorder{
+    color: white;
+    margin: 0;
+    text-align: center;
+    background-color: teal;
+    padding: 10px 0 10px 0;
+}
+#toDoList{
+   list-style-type: none;
+   padding: 0px;
+   margin: 0;
+
+}
+
+.text{
+    
+    display: inline-block;
+    padding-left: 35px;
+    max-width: 300px;
+    word-break: break-all;
+   
+}
+.newList{
+    position: relative;
+    
+}
+
+.newList:nth-child(even){
+    background-color: bisque;
+}
+
+.check{
+    position: absolute;
+    left:15px;
+    top: 17px;
+    color: green;
+}
+
+.delete{
+    position: absolute;
+    right: 15px;
+    top: 17px;
+    color: red;
+
+}
+
+.addItems{
+    margin-left: 15px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    width: 95%;
+}
+
+#inputToDo{
+    border-radius: 3px;
+    width: 86%;
+    height: 25px;
+    border: 1px solid #1e90ff;
+    padding-left: 5px;
+}
+
+#add{
+    width: 30px;
+    height: 29px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    background-color: dodgerblue;
+}
+
+
+.linethrough{
+    text-decoration: line-through green;
+
+}
+
