@@ -70,6 +70,7 @@ function checkItem(element){
     setLocalStorage(EntierList);
 }
 
+// event listener to delete and check a list item
 toDoList.addEventListener("click", function(event){
     let element = event.target;
 
