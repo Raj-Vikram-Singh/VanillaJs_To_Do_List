@@ -5,63 +5,54 @@ let EntierList = [];
 let id =0;
 
 const CHECK = "fa-check-square-o";
-
 const UNCHECK = "fa-square-o";
-
 const LineThrough = "linethrough";
  
-
+// function to render the view for the the new lists added.
 function showItem(task, id, done){ 
-    // let task = newToDoItem.value;
-
+   
     let Complete = done ?  CHECK : UNCHECK ;
-
     let Line = done ? LineThrough:"";
+
     let newList = ` <li class = "newList"> 
                         <i class ="fa ${Complete} check" id = ${id} title = "check"></i>
                         <p class = "text ${Line}"> ${task} </p>
                         <i class ="fa fa-trash delete" title = "delete" id = ${id}></i>
                     </li> `;
 
-    if(task){              
-   toDoList.insertAdjacentHTML("afterbegin",newList); 
-  
-   EntierList.push({taskName: task, id: id, done: false})
-  
+    if(task){ 
 
-   setLocalStorage(EntierList);
+        toDoList.insertAdjacentHTML("afterbegin",newList); 
+        
+        EntierList.push({taskName: task, id: id, done: false})
+        
+        setLocalStorage(EntierList);
     }
     newToDoItem.value="";
 
     
 }
 
+// function to add the new list using a button
 function saveItemButton(){
+
     let task = newToDoItem.value;
-
     showItem(task, id, false);
-    
-     id++;
-
-
-
+    id++;
 }
 
 
+// event listener to add the new list when the user hits Enter.
 document.addEventListener("keyup", function(event){
     let task = newToDoItem.value.trim();
     if(event.keyCode == 13){
         showItem(task, id, false);
-
-        // EntierList.push({taskName: task, id: id, done: false})
         id++;
-
-        // setLocalStorage(EntierList);
     }
 
 });
 
-
+// function to delete a list item
 let filteredList = EntierList;
 function deleteItem(element){
      element.parentNode.parentNode.removeChild(element.parentNode); 
@@ -70,6 +61,7 @@ function deleteItem(element){
         setLocalStorage(filteredList);
 }
 
+// function to mark as complete a list item.
 function checkItem(element){
     element.classList.toggle(CHECK);
     element.classList.toggle(UNCHECK);
@@ -91,9 +83,9 @@ toDoList.addEventListener("click", function(event){
 
     console.log(JSON.stringify(EntierList));
 
-})
+});
 
-
+// functions to set and get value in Local Storage
 function setLocalStorage(list){
     localStorage.setItem("taskList", JSON.stringify(list));
 }
@@ -104,6 +96,7 @@ function getLocalStorage(){
 
 }
 
+// function to render the list by accessing Local Storage.
 function persistingSession(){
     
     let storedList = getLocalStorage();
@@ -112,8 +105,7 @@ function persistingSession(){
         }
 
        else {
-            id = storedList.length;
-        
+            id = storedList.length;       
 
             storedList.forEach(element => {
                 console.log("This is the stored List  " + element.taskName);
@@ -126,6 +118,7 @@ function persistingSession(){
 
    window.onload= persistingSession;
 
+//    function to empty the local storage and refresh the page.
    function refresh(){
        localStorage.clear();
        location.reload();
