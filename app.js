@@ -57,8 +57,8 @@ let filteredList = EntierList;
 function deleteItem(element){
      element.parentNode.parentNode.removeChild(element.parentNode); 
      
-     filteredList =  filteredList.filter(item => item.id != element.id);
-        setLocalStorage(filteredList);
+     EntierList =  EntierList.filter(item => item.id != element.id);
+        setLocalStorage(EntierList);
 }
 
 // function to mark as complete a list item.
@@ -66,7 +66,11 @@ function checkItem(element){
     element.classList.toggle(CHECK);
     element.classList.toggle(UNCHECK);
     element.parentNode.querySelector(".text").classList.toggle(LineThrough);
-    EntierList[element.id].done = EntierList[element.id].done ? false : true;
+ for(i=0 ; i< EntierList.length ; i++){
+  if(element.id == EntierList[i].id){
+    EntierList[i].done = EntierList[i].done ? false : true;
+  }
+ }
     setLocalStorage(EntierList);
 }
 
