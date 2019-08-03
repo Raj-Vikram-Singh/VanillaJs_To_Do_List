@@ -53,7 +53,6 @@ document.addEventListener("keyup", function(event){
 });
 
 // function to delete a list item
-let filteredList = EntierList;
 function deleteItem(element){
      element.parentNode.parentNode.removeChild(element.parentNode); 
      
@@ -66,11 +65,12 @@ function checkItem(element){
     element.classList.toggle(CHECK);
     element.classList.toggle(UNCHECK);
     element.parentNode.querySelector(".text").classList.toggle(LineThrough);
- for(i=0 ; i< EntierList.length ; i++){
-  if(element.id == EntierList[i].id){
-    EntierList[i].done = EntierList[i].done ? false : true;
-  }
- }
+    
+    for(i=0 ; i< EntierList.length ; i++){
+    if(element.id == EntierList[i].id){
+        EntierList[i].done = EntierList[i].done ? false : true;
+    }
+    }
     setLocalStorage(EntierList);
 }
 
